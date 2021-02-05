@@ -1,0 +1,33 @@
+class Solution {
+public:
+    int findLHS(vector<int>& nums) {
+        
+        vector<int>distinctNums;
+        
+        unordered_map<int, int>m;
+        
+        for(auto x : nums){
+            if(m[x] == 0){
+                distinctNums.push_back(x);
+            }
+            m[x]++;
+        }
+        for(auto x : distinctNums){
+            cout<<x<<' ';
+        }
+        sort(distinctNums.begin(), distinctNums.end());
+        
+        int ans = 0;
+        for(int i = 0; i < distinctNums.size() - 1; i++){
+            if(distinctNums[i + 1] - distinctNums[i] == 1){
+                int v = m[distinctNums[i+1]] + m[distinctNums[i]];
+                
+                ans = max(v, ans);
+            }
+        }
+        
+        return ans;
+        
+        
+    }
+};
