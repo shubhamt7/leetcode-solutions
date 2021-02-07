@@ -1,3 +1,3 @@
-#Solutions to leetcode daily challenges
+Solutions to leetcode daily challenges
 
 
